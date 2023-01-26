@@ -1,4 +1,5 @@
 // Initial imports
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 
@@ -26,10 +27,9 @@ app.get('/', (req, res) => {
 const personController = require('./controllers/personController')
 app.use('/person', personController)
 
-
 // Database config
-const DB_USER = 'GabrielSpacki'
-const DB_PASSWORD = 'sb9nMePC2JfMJP7F'
+const DB_USER = process.env.DB_USER
+const DB_PASSWORD = encodeURIComponent(process.env.PASSWORD)
 
 // Start application
 mongoose
